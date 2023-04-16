@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1681674193 source:/home/henri/codeblocks/charlotte/src/Application.cpp
+	"Application.h"
+	<iostream>
+	<filesystem>
+	<fstream>
+	<exception>
+	<wiringPi.h>
+
+1681675041 /home/henri/codeblocks/charlotte/include/Application.h
+	"Potentiometer.h"
+	"LCD.h"
+	<string>
+	<vector>
+	<memory>
+
+1681671572 source:/home/henri/codeblocks/charlotte/main.cpp
+	<iostream>
+	"Application.h"
+	<exception>
+	<wiringPi.h>
+
+1681674860 /home/henri/codeblocks/charlotte/include/Potentiometer.h
+
+1681674963 source:/home/henri/codeblocks/charlotte/src/Potentiometer.cpp
+	"Potentiometer.h"
+	"Application.h"
+	<wiringPi.h>
+
+1681673129 /home/henri/codeblocks/charlotte/include/LCD.h
+	<string>
+
+1681673201 source:/home/henri/codeblocks/charlotte/src/LCD.cpp
+	"LCD.h"
+	<wiringPi.h>
+	<pcf8574.h>
+	<lcd.h>
+	"Application.h"
+	<cmath>
+
