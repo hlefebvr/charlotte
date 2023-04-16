@@ -8,13 +8,31 @@
 std::string impl::Application::s_memory_filename = "memory.txt";
 
 impl::Application::Application(LCD* t_lcd,
-                               Potentiometer* t_potentiometer)
+                               Potentiometer* t_potentiometer,
+                               Button* t_white_button,
+                               Button* t_blue_button,
+                               Button* t_red_button,
+                               LED* t_led,
+                               Buzzer* t_buzzer
+                               )
     : m_lcd(t_lcd),
-      m_potentiometer(t_potentiometer) {
+      m_potentiometer(t_potentiometer),
+      m_white_button(t_white_button),
+      m_blue_button(t_blue_button),
+      m_red_button(t_red_button),
+      m_led(t_led),
+      m_buzzer(t_buzzer) {
 
-
+    // Output
     m_lcd->initialize();
+    m_led->initialize();
+    m_buzzer->initialize();
+
+    // Input
     m_potentiometer->initialize();
+    m_white_button->initialize();
+    m_blue_button->initialize();
+    m_red_button->initialize();
 
     read_current_step_from_disk();
 
@@ -84,17 +102,38 @@ void impl::Application::run() {
     display("");
 
     while (true) {
+
         m_potentiometer->ping();
+        m_white_button->ping();
+        m_blue_button->ping();
+        m_red_button->ping();
+
     }
 
 }
 
 void impl::Application::potentiometer_has_new_value(int t_value) {
-    std::cout << t_value << std::endl;
-    display("Value: " + std::to_string(t_value));
+    display("Value: " + std::to_string(t_value), 500);
+}
+
+void impl::Application::white_button_was_pressed() {
+    m_led->set_color(LED::White);
+}
+
+void impl::Application::blue_button_was_pressed() {
+    m_led->set_color(LED::Blue);
+}
+
+void impl::Application::red_button_was_pressed() {
+    m_led->set_color(LED::Red);
 }
 
 Application::Application() : impl::Application(new LCD(*this),
-                                               new Potentiometer(*this)
+                                               new Potentiometer(*this),
+                                               new Button(*this, Button::White),
+                                               new Button(*this, Button::Blue),
+                                               new Button(*this, Button::Red),
+                                               new LED(*this),
+                                               new Buzzer(*this)
                                             ) {}
 
