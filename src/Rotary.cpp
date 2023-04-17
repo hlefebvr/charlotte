@@ -32,8 +32,6 @@ void Rotary::initialize() {
 		return;
 	}
 
-    m_application.display("Rotary OK.");
-
 }
 
 void Rotary::ping() {

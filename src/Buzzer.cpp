@@ -16,8 +16,6 @@ void Buzzer::initialize() {
     pinMode(BUZZER, OUTPUT);   //set GPIO0 output
 
     bip(500);
-
-    m_application.display("Buzzer OK.");
 }
 
 void Buzzer::bip(unsigned int t_time_in_milliseconds) {

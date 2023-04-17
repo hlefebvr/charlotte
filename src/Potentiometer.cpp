@@ -17,8 +17,6 @@ void Potentiometer::initialize() {
 	pinMode(ADC_CS,  OUTPUT);
 	pinMode(ADC_CLK, OUTPUT);
 
-    m_application.display("Potentio OK.");
-
 }
 
 unsigned char Potentiometer::current_value() const {

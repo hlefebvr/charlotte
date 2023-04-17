@@ -5,6 +5,9 @@
 #include <exception>
 #include <wiringPi.h>
 
+#include "Age.h"
+#include "End.h"
+
 std::string impl::Application::s_memory_filename = "memory.txt";
 
 impl::Application::Application(LCD* t_lcd,
@@ -61,7 +64,7 @@ void impl::Application::read_current_step_from_disk() {
 
 }
 
-void impl::Application::write_current_step_from_disk() {
+void impl::Application::write_current_step_to_disk() {
 
     std::ofstream file(s_memory_filename);
 
@@ -91,20 +94,24 @@ void impl::Application::error(const std::string& t_msg) {
 
 }
 
-void impl::Application::display(const std::string& t_msg, unsigned int t_min_delay_in_seconds) {
+void impl::Application::display(const std::string& t_msg, unsigned int t_min_delay_in_milliseconds) {
     m_lcd->display(t_msg);
-    wait(t_min_delay_in_seconds);
+    wait(t_min_delay_in_milliseconds);
 }
 
 void impl::Application::wait(unsigned int t_time_in_seconds) {
     delay(t_time_in_seconds);
 }
 
-void impl::Application::run() {
+void impl::Application::set_led_color(LED::Color t_color) {
+    m_led->set_color(t_color);
+}
 
-    display("Application         is starting.");
-    display("Current step: " + std::to_string(m_current_step));
-    display("");
+void impl::Application::make_bip(unsigned int t_time_in_milliseconds) {
+    m_buzzer->bip(t_time_in_milliseconds);
+}
+
+void impl::Application::run() {
 
     while (true) {
 
@@ -114,34 +121,66 @@ void impl::Application::run() {
         m_red_button->ping();
         m_rotary->ping();
 
+        if (m_steps.at(m_current_step)->done()) {
+
+            if (m_current_step < m_steps.size()) {
+                ++m_current_step;
+                write_current_step_to_disk();
+            }
+
+        }
+
     }
 
 }
 
+void impl::Application::add_step(Step* t_step) {
+    m_steps.emplace_back(t_step);
+}
+
 void impl::Application::potentiometer_has_new_value(int t_value) {
-    display("Value: " + std::to_string(t_value), 500);
+
+    const auto mode = t_value < 128 ? Question : Answer;
+
+    if (!m_mode.has_value() || mode != m_mode) {
+        m_mode = mode;
+        m_steps.at(m_current_step)->set_mode(mode);
+    }
+
 }
 
 void impl::Application::white_button_was_pressed() {
-    m_led->set_color(LED::White);
+    if (m_mode == Answer) {
+        m_steps.at(m_current_step)->white_button_was_pressed();
+    } else {
+        m_steps.at(m_current_step)->previous_screen();
+    }
 }
 
 void impl::Application::blue_button_was_pressed() {
-    m_led->set_color(LED::Blue);
+    if (m_mode == Answer) {
+        m_steps.at(m_current_step)->blue_button_was_pressed();
+    } else {
+        m_steps.at(m_current_step)->next_screen();
+    }
 }
 
 void impl::Application::red_button_was_pressed() {
-    m_led->set_color(LED::Red);
+    if (m_mode == Answer) {
+        m_steps.at(m_current_step)->red_button_was_pressed();
+    }
 }
 
 void impl::Application::rotary_has_new_value(int t_value) {
-    display("Rotary: " + std::to_string(t_value));
+    if (m_mode == Answer) {
+        m_steps.at(m_current_step)->rotary_has_new_value(t_value);
+    }
 }
 
 void impl::Application::rotary_was_pressed() {
-    m_led->set_color(LED::Cyan);
-    wait(1000);
-    m_led->set_color(LED::Off);
+    if (m_mode == Answer) {
+        m_steps.at(m_current_step)->rotary_was_pressed();
+    }
 }
 
 Application::Application() : impl::Application(new LCD(*this),
@@ -152,5 +191,10 @@ Application::Application() : impl::Application(new LCD(*this),
                                                new LED(*this),
                                                new Buzzer(*this),
                                                new Rotary(*this)
-                                            ) {}
+                                            ) {
+
+    add_step(new Steps::Age(*this));
+    add_step(new Steps::End(*this));
+
+}
 

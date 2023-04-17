@@ -24,7 +24,6 @@ Button::Button(Application& t_application, Color t_color)
 void Button::initialize() {
     pinMode(m_pin, INPUT);
     pullUpDnControl(m_pin, PUD_UP);
-    m_application.display("Button " + std::to_string(m_color) + " OK.");
 }
 
 void Button::ping() {

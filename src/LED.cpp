@@ -27,8 +27,6 @@ void LED::initialize() {
     set_color(Green);
     m_application.wait(500);
     set_color(Off);
-
-    m_application.display("LED OK.");
 }
 
 void LED::set_color(Color t_color) {

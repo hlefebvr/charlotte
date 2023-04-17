@@ -49,8 +49,6 @@ void LCD::initialize() {
 
     lcdHome(m_handle);
     lcdClear(m_handle);
-
-    m_application.display("LCD OK.");
 }
 
 void LCD::display(const std::string& t_msg) {
