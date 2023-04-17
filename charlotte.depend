@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1681766033 source:/home/henri/codeblocks/charlotte/src/Application.cpp
+1681767566 source:/home/henri/codeblocks/charlotte/src/Application.cpp
 	"Application.h"
 	<iostream>
 	<filesystem>
@@ -8,6 +8,7 @@
 	<wiringPi.h>
 	"Age.h"
 	"GreenLight.h"
+	"ASCII.h"
 	"End.h"
 
 1681765111 /home/henri/codeblocks/charlotte/include/Application.h
@@ -107,5 +108,8 @@
 	"GreenLight.h"
 
 1681766208 /home/henri/codeblocks/charlotte/include/GreenLight.h
+	"Step.h"
+
+1681767366 /home/henri/codeblocks/charlotte/include/ASCII.h
 	"Step.h"
 
