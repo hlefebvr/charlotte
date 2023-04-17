@@ -13,7 +13,8 @@ impl::Application::Application(LCD* t_lcd,
                                Button* t_blue_button,
                                Button* t_red_button,
                                LED* t_led,
-                               Buzzer* t_buzzer
+                               Buzzer* t_buzzer,
+                               Rotary* t_rotary
                                )
     : m_lcd(t_lcd),
       m_potentiometer(t_potentiometer),
@@ -21,7 +22,8 @@ impl::Application::Application(LCD* t_lcd,
       m_blue_button(t_blue_button),
       m_red_button(t_red_button),
       m_led(t_led),
-      m_buzzer(t_buzzer) {
+      m_buzzer(t_buzzer),
+      m_rotary(t_rotary) {
 
     // Output
     m_lcd->initialize();
@@ -33,6 +35,7 @@ impl::Application::Application(LCD* t_lcd,
     m_white_button->initialize();
     m_blue_button->initialize();
     m_red_button->initialize();
+    m_rotary->initialize();
 
     read_current_step_from_disk();
 
@@ -77,6 +80,8 @@ void impl::Application::error(const std::string& t_msg) {
 
     m_is_in_error = true;
 
+    m_led->set_color(LED::Red);
+
     if (!m_lcd->is_working()) {
         std::cout << t_msg << std::endl;
         return;
@@ -107,6 +112,7 @@ void impl::Application::run() {
         m_white_button->ping();
         m_blue_button->ping();
         m_red_button->ping();
+        m_rotary->ping();
 
     }
 
@@ -128,12 +134,23 @@ void impl::Application::red_button_was_pressed() {
     m_led->set_color(LED::Red);
 }
 
+void impl::Application::rotary_has_new_value(int t_value) {
+    display("Rotary: " + std::to_string(t_value));
+}
+
+void impl::Application::rotary_was_pressed() {
+    m_led->set_color(LED::Cyan);
+    wait(1000);
+    m_led->set_color(LED::Off);
+}
+
 Application::Application() : impl::Application(new LCD(*this),
                                                new Potentiometer(*this),
                                                new Button(*this, Button::White),
                                                new Button(*this, Button::Blue),
                                                new Button(*this, Button::Red),
                                                new LED(*this),
-                                               new Buzzer(*this)
+                                               new Buzzer(*this),
+                                               new Rotary(*this)
                                             ) {}
 

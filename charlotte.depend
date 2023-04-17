@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1681679106 source:/home/henri/codeblocks/charlotte/src/Application.cpp
+1681757807 source:/home/henri/codeblocks/charlotte/src/Application.cpp
 	"Application.h"
 	<iostream>
 	<filesystem>
@@ -7,12 +7,13 @@
 	<exception>
 	<wiringPi.h>
 
-1681679051 /home/henri/codeblocks/charlotte/include/Application.h
+1681757566 /home/henri/codeblocks/charlotte/include/Application.h
 	"Potentiometer.h"
 	"LCD.h"
 	"Button.h"
 	"Buzzer.h"
 	"LED.h"
+	"Rotary.h"
 	<string>
 	<vector>
 	<memory>
@@ -57,4 +58,11 @@
 	<softPwm.h>
 
 1681679153 /home/henri/codeblocks/charlotte/include/Buzzer.h
+
+1681758424 /home/henri/codeblocks/charlotte/include/Rotary.h
+
+1681679141 source:/home/henri/codeblocks/charlotte/src/Buzzer.cpp
+	"Buzzer.h"
+	<wiringPi.h>
+	"Application.h"
 

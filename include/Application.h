@@ -6,6 +6,7 @@
 #include "Button.h"
 #include "Buzzer.h"
 #include "LED.h"
+#include "Rotary.h"
 
 #include <string>
 #include <vector>
@@ -31,6 +32,7 @@ class impl::Application {
     std::unique_ptr<Button> m_red_button;
     std::unique_ptr<LED> m_led;
     std::unique_ptr<Buzzer> m_buzzer;
+    std::unique_ptr<Rotary> m_rotary;
 
     void initialize();
     void read_current_step_from_disk();
@@ -45,6 +47,8 @@ protected:
     void white_button_was_pressed();
     void blue_button_was_pressed();
     void red_button_was_pressed();
+    void rotary_has_new_value(int t_value);
+    void rotary_was_pressed();
 public:
     Application(LCD* t_lcd,
                 Potentiometer* t_potentiometer,
@@ -52,7 +56,8 @@ public:
                 Button* t_blue_button,
                 Button* t_red_button,
                 LED* t_led,
-                Buzzer* t_buzzer
+                Buzzer* t_buzzer,
+                Rotary* t_rotary
             );
 
     virtual ~Application() = default;
@@ -66,6 +71,7 @@ class Application : public impl::Application {
     friend class Button;
     friend class LED;
     friend class Buzzer;
+    friend class Rotary;
 public:
     Application();
 };
