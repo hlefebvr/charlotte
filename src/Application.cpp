@@ -6,6 +6,7 @@
 #include <wiringPi.h>
 
 #include "Age.h"
+#include "GreenLight.h"
 #include "End.h"
 
 std::string impl::Application::s_memory_filename = "memory.txt";
@@ -194,6 +195,7 @@ Application::Application() : impl::Application(new LCD(*this),
                                             ) {
 
     add_step(new Steps::Age(*this));
+    add_step(new Steps::GreenLight(*this));
     add_step(new Steps::End(*this));
 
 }
