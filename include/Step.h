@@ -25,6 +25,8 @@ protected:
     void set_led_color(LED::Color t_color);
     void make_bip(unsigned int t_time_in_milliseconds);
 
+    virtual void screen_callback(unsigned int t_index) {}
+
     void success();
     void fail();
 public:

@@ -8,6 +8,7 @@
 #include "Age.h"
 #include "GreenLight.h"
 #include "ASCII.h"
+#include "Memory.h"
 #include "End.h"
 
 std::string impl::Application::s_memory_filename = "memory.txt";
@@ -198,6 +199,7 @@ Application::Application() : impl::Application(new LCD(*this),
     add_step(new Steps::Age(*this));
     add_step(new Steps::GreenLight(*this));
     add_step(new Steps::ASCII(*this));
+    add_step(new Steps::Memory(*this));
     add_step(new Steps::End(*this));
 
 }

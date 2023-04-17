@@ -29,14 +29,14 @@ void Step::next_screen() {
     m_current_screen += 1;
     m_current_screen %= m_screens.size();
     m_application.display(m_screens.at(m_current_screen));
+    screen_callback(m_current_screen);
 }
 
 void Step::previous_screen() {
 
-    if (m_current_screen != 0) {
-        m_current_screen -= 1;
-        m_application.display(m_screens.at(m_current_screen));
-    }
+    m_current_screen = m_current_screen == 0 ? m_screens.size() - 1 : m_current_screen - 1;
+    m_application.display(m_screens.at(m_current_screen));
+    screen_callback(m_current_screen);
 
 }
 
@@ -60,7 +60,8 @@ void Step::success() {
     for (int k = 0 ; k < 5 ; ++k) {
         m_application.wait(100);
         m_application.set_led_color(LED::Green);
-        m_application.wait(100);
+        make_bip(30);
+        m_application.wait(70);
         m_application.set_led_color(LED::Off);
     }
     m_application.display("Bravo !         Enigme resolue !");
@@ -69,6 +70,7 @@ void Step::success() {
 
 void Step::fail() {
     m_application.set_led_color(LED::Red);
-    m_application.wait(700);
+    make_bip(200);
+    m_application.wait(500);
     m_application.set_led_color(LED::Off);
 }

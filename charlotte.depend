@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1681767566 source:/home/henri/codeblocks/charlotte/src/Application.cpp
+1681768855 source:/home/henri/codeblocks/charlotte/src/Application.cpp
 	"Application.h"
 	<iostream>
 	<filesystem>
@@ -9,6 +9,7 @@
 	"Age.h"
 	"GreenLight.h"
 	"ASCII.h"
+	"Memory.h"
 	"End.h"
 
 1681765111 /home/henri/codeblocks/charlotte/include/Application.h
@@ -75,7 +76,7 @@
 
 1681759490 /home/henri/codeblocks/charlotte/include/types.h
 
-1681764543 /home/henri/codeblocks/charlotte/include/Step.h
+1681768538 /home/henri/codeblocks/charlotte/include/Step.h
 	"types.h"
 	"LED.h"
 	<vector>
@@ -94,7 +95,7 @@
 1681764943 /home/henri/codeblocks/charlotte/include/Age.h
 	<Step.h>
 
-1681765660 source:/home/henri/codeblocks/charlotte/src/Step.cpp
+1681769102 source:/home/henri/codeblocks/charlotte/src/Step.cpp
 	"Step.h"
 	"Application.h"
 
@@ -111,5 +112,14 @@
 	"Step.h"
 
 1681767366 /home/henri/codeblocks/charlotte/include/ASCII.h
+	"Step.h"
+
+1681768147 source:/home/henri/codeblocks/charlotte/src/ASCII.cpp
+	"ASCII.h"
+
+1681768927 source:/home/henri/codeblocks/charlotte/src/Memory.cpp
+	"Memory.h"
+
+1681769211 /home/henri/codeblocks/charlotte/include/Memory.h
 	"Step.h"
 
