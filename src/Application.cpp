@@ -144,6 +144,23 @@ void impl::Application::run() {
 
 }
 
+void impl::Application::red_button_was_pressed_for_a_long_time() {
+
+    if (!m_mode.has_value() || m_mode != Question) {
+        return;
+    }
+
+    m_led->set_color(LED::Magenta);
+    for (auto& step : m_steps) {
+        step->reset_status();
+    }
+    m_current_step = 0;
+    write_current_step_to_disk();
+    wait(1000);
+    m_led->set_color(LED::Off);
+
+}
+
 void impl::Application::add_step(Step* t_step) {
     m_steps.emplace_back(t_step);
 }
@@ -155,6 +172,7 @@ void impl::Application::potentiometer_has_new_value(int t_value) {
     if (!m_mode.has_value() || mode != m_mode) {
         m_mode = mode;
         m_steps.at(m_current_step)->set_mode(mode);
+        m_rotary->reset_value();
     }
 
 }

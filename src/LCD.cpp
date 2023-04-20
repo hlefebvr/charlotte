@@ -49,6 +49,8 @@ void LCD::initialize() {
 
     lcdHome(m_handle);
     lcdClear(m_handle);
+    lcdCursorBlink(m_handle, false);
+    lcdCursor(m_handle, false);
 }
 
 void LCD::display(const std::string& t_msg) {

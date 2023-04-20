@@ -13,6 +13,8 @@ public:
     void initialize();
 
     void ping();
+
+    void reset_value();
 };
 
 #endif // ROTARY_H

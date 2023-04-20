@@ -64,3 +64,7 @@ void Rotary::ping() {
 	}
 
 }
+
+void Rotary::reset_value() {
+    m_counter = 0;
+}

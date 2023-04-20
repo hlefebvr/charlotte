@@ -8,6 +8,8 @@
 #include <wiringPi.h>
 #include "Application.h"
 
+#include <chrono>
+
 Button::Button(Application& t_application, Color t_color)
     : m_application(t_application),
       m_pin([&](){
@@ -26,11 +28,21 @@ void Button::initialize() {
     pullUpDnControl(m_pin, PUD_UP);
 }
 
+#include <iostream>
+
 void Button::ping() {
+
+    using clock = std::chrono::steady_clock;
 
     if (digitalRead(m_pin) == 0) {
         delay(100);
-        while(digitalRead(m_pin) == 0);
+        const auto before = clock::now();
+        while(digitalRead(m_pin) == 0) {
+            if ( m_color == Color::Red && std::chrono::duration<double>(clock::now() - before).count() > 3 ) {
+                m_application.red_button_was_pressed_for_a_long_time();
+                break;
+            }
+        }
         delay(100);
         switch (m_color) {
             case White: m_application.white_button_was_pressed(); break;
