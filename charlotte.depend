@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1681768855 source:/home/henri/codeblocks/charlotte/src/Application.cpp
+1681983282 source:/home/henri/codeblocks/charlotte/src/Application.cpp
 	"Application.h"
 	<iostream>
 	<filesystem>
@@ -9,7 +9,14 @@
 	"Age.h"
 	"GreenLight.h"
 	"ASCII.h"
+	"Mbappe.h"
+	"Morse.h"
+	"Poetry.h"
+	"Letter.h"
 	"Memory.h"
+	"SPP.h"
+	"Museum.h"
+	"CPP.h"
 	"End.h"
 
 1681765111 /home/henri/codeblocks/charlotte/include/Application.h
@@ -76,33 +83,33 @@
 
 1681759490 /home/henri/codeblocks/charlotte/include/types.h
 
-1681768538 /home/henri/codeblocks/charlotte/include/Step.h
+1681770885 /home/henri/codeblocks/charlotte/include/Step.h
 	"types.h"
 	"LED.h"
 	<vector>
 	<string>
 	<optional>
 
-1681761930 source:/home/henri/codeblocks/charlotte/src/Rotary.cpp
+1681982283 source:/home/henri/codeblocks/charlotte/src/Rotary.cpp
 	"Rotary.h"
 	"Application.h"
 	<wiringPi.h>
 
-1681764778 source:/home/henri/codeblocks/charlotte/src/Age.cpp
+1681974941 source:/home/henri/codeblocks/charlotte/src/Age.cpp
 	"Age.h"
 	"Application.h"
 
 1681764943 /home/henri/codeblocks/charlotte/include/Age.h
 	<Step.h>
 
-1681769102 source:/home/henri/codeblocks/charlotte/src/Step.cpp
+1681978971 source:/home/henri/codeblocks/charlotte/src/Step.cpp
 	"Step.h"
 	"Application.h"
 
-1681765332 source:/home/henri/codeblocks/charlotte/src/End.cpp
+1681976093 source:/home/henri/codeblocks/charlotte/src/End.cpp
 	"End.h"
 
-1681765081 /home/henri/codeblocks/charlotte/include/End.h
+1681975627 /home/henri/codeblocks/charlotte/include/End.h
 	"Step.h"
 
 1681766650 source:/home/henri/codeblocks/charlotte/src/GreenLight.cpp
@@ -117,9 +124,51 @@
 1681768147 source:/home/henri/codeblocks/charlotte/src/ASCII.cpp
 	"ASCII.h"
 
-1681768927 source:/home/henri/codeblocks/charlotte/src/Memory.cpp
+1681983237 source:/home/henri/codeblocks/charlotte/src/Memory.cpp
 	"Memory.h"
 
 1681769211 /home/henri/codeblocks/charlotte/include/Memory.h
 	"Step.h"
+
+1681975714 source:/home/henri/codeblocks/charlotte/src/Mbappe.cpp
+	"Mbappe.h"
+
+1681975639 /home/henri/codeblocks/charlotte/include/Mbappe.h
+	"Step.h"
+
+1681977300 /home/henri/codeblocks/charlotte/include/Morse.h
+	"Step.h"
+
+1681983177 source:/home/henri/codeblocks/charlotte/src/Morse.cpp
+	"Morse.h"
+
+1681977932 source:/home/henri/codeblocks/charlotte/src/Poetry.cpp
+	"Poetry.h"
+
+1681977836 /home/henri/codeblocks/charlotte/include/Poetry.h
+	"Step.h"
+
+1681978864 source:/home/henri/codeblocks/charlotte/src/Letter.cpp
+	"Letter.h"
+
+1681978677 /home/henri/codeblocks/charlotte/include/Letter.h
+	"Step.h"
+
+1681980365 /home/henri/codeblocks/charlotte/include/CPP.h
+	"Step.h"
+
+1681980546 source:/home/henri/codeblocks/charlotte/src/CPP.cpp
+	"CPP.h"
+
+1681981856 source:/home/henri/codeblocks/charlotte/src/SPP.cpp
+	"SPP.h"
+
+1681981519 /home/henri/codeblocks/charlotte/include/SPP.h
+	"Step.h"
+
+1681983419 /home/henri/codeblocks/charlotte/include/Museum.h
+	"Step.h"
+
+1681984112 source:/home/henri/codeblocks/charlotte/src/Museum.cpp
+	"Museum.h"
 

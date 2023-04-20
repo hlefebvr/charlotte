@@ -37,6 +37,7 @@ public:
     void set_mode(Mode t_mode);
     void next_screen();
     void previous_screen();
+    void home_screen();
 
     virtual void potentiometer_has_new_value(int t_value) = 0;
     virtual void white_button_was_pressed() = 0;

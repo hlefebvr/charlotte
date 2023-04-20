@@ -112,7 +112,7 @@ void Steps::Age::rotary_was_pressed() {
 
     if (done()) { return; }
 
-    if (!m_current_value.has_value() || m_current_value != 28) {
+    if (!m_current_value.has_value() || m_current_value != 29) {
         fail();
         return;
     }

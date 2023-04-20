@@ -8,7 +8,14 @@
 #include "Age.h"
 #include "GreenLight.h"
 #include "ASCII.h"
+#include "Mbappe.h"
+#include "Morse.h"
+#include "Poetry.h"
+#include "Letter.h"
 #include "Memory.h"
+#include "SPP.h"
+#include "Museum.h"
+#include "CPP.h"
 #include "End.h"
 
 std::string impl::Application::s_memory_filename = "memory.txt";
@@ -171,6 +178,8 @@ void impl::Application::blue_button_was_pressed() {
 void impl::Application::red_button_was_pressed() {
     if (m_mode == Answer) {
         m_steps.at(m_current_step)->red_button_was_pressed();
+    } else {
+        m_steps.at(m_current_step)->home_screen();
     }
 }
 
@@ -199,7 +208,14 @@ Application::Application() : impl::Application(new LCD(*this),
     add_step(new Steps::Age(*this));
     add_step(new Steps::GreenLight(*this));
     add_step(new Steps::ASCII(*this));
+    add_step(new Steps::Mbappe(*this));
+    add_step(new Steps::Morse(*this));
+    add_step(new Steps::Poetry(*this));
+    add_step(new Steps::Letter(*this));
     add_step(new Steps::Memory(*this));
+    add_step(new Steps::SPP(*this));
+    add_step(new Steps::Museum(*this));
+    add_step(new Steps::CPP(*this));
     add_step(new Steps::End(*this));
 
 }

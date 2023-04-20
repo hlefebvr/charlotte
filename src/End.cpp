@@ -13,8 +13,10 @@ Steps::End::End(Application& t_application) : Step(t_application) {
           "Comme recompense"
           "voila mon code :",
 
-          "     200494     "
-          "                "
+          "5b598a3454adf51a"
+          "0451c334be359c2f",
+
+          "MDR."
     };
 
 }

@@ -39,13 +39,52 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/ASCII.h" />
+		<Unit filename="include/Age.h" />
 		<Unit filename="include/Application.h" />
+		<Unit filename="include/Button.h" />
+		<Unit filename="include/Buzzer.h" />
+		<Unit filename="include/CPP." />
+		<Unit filename="include/CPP.h" />
+		<Unit filename="include/End.h" />
+		<Unit filename="include/GreenLight.h" />
 		<Unit filename="include/LCD.h" />
+		<Unit filename="include/LED.h" />
+		<Unit filename="include/Letter.h" />
+		<Unit filename="include/Mbappe.h" />
+		<Unit filename="include/Memory.h" />
+		<Unit filename="include/Morse.h" />
+		<Unit filename="include/Museum.h" />
+		<Unit filename="include/Poetry.h" />
 		<Unit filename="include/Potentiometer.h" />
+		<Unit filename="include/Rotary.h" />
+		<Unit filename="include/SPP." />
+		<Unit filename="include/SPP.h" />
+		<Unit filename="include/Step.h" />
+		<Unit filename="include/types.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/ASCII.cpp" />
+		<Unit filename="src/Age.cpp" />
 		<Unit filename="src/Application.cpp" />
+		<Unit filename="src/Button.cpp" />
+		<Unit filename="src/Buzzer.cpp" />
+		<Unit filename="src/CPP." />
+		<Unit filename="src/CPP.cpp" />
+		<Unit filename="src/End.cpp" />
+		<Unit filename="src/GreenLight.cpp" />
 		<Unit filename="src/LCD.cpp" />
+		<Unit filename="src/LED.cpp" />
+		<Unit filename="src/Letter.cpp" />
+		<Unit filename="src/Mbappe.cpp" />
+		<Unit filename="src/Memory.cpp" />
+		<Unit filename="src/Morse.cpp" />
+		<Unit filename="src/Museum.cpp" />
+		<Unit filename="src/Poetry.cpp" />
 		<Unit filename="src/Potentiometer.cpp" />
+		<Unit filename="src/Rotary.cpp" />
+		<Unit filename="src/SPP." />
+		<Unit filename="src/SPP.cpp" />
+		<Unit filename="src/Step.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

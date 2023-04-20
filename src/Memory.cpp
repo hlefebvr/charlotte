@@ -8,7 +8,7 @@ Steps::Memory::Memory(Application& t_application) : Step(t_application) {
           "Je dois te dire ",
 
           "que cette enigme"
-          "risque d'etre   ",
+          "ci risque d'etre",
 
           "Streisand...    "
           "                ",
@@ -70,6 +70,8 @@ void Steps::Memory::rotary_was_pressed() {
 }
 
 void Steps::Memory::check(LED::Color t_color) {
+
+    if (done()) { return; }
 
     if (m_current_index == m_colors.size() || m_colors[m_current_index] != t_color) {
         fail();

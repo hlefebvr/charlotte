@@ -38,8 +38,9 @@ void Rotary::ping() {
 
     // Checking clicks
     if (m_last_click_count != clicked_count) {
-        m_last_click_count = clicked_count;
         m_application.rotary_was_pressed();
+        m_last_click_count = clicked_count;
+        return;
     }
 
     // Checking value

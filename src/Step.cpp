@@ -25,6 +25,11 @@ void Step::set_mode(Mode t_mode) {
 
 }
 
+void Step::home_screen() {
+    m_current_screen = m_screens.size() - 1;
+    next_screen();
+}
+
 void Step::next_screen() {
     m_current_screen += 1;
     m_current_screen %= m_screens.size();
@@ -66,6 +71,7 @@ void Step::success() {
     }
     m_application.display("Bravo !         Enigme resolue !");
     m_done = true;
+    m_application.wait(200);
 }
 
 void Step::fail() {
